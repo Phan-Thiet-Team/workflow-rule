@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quy trình làm việc</title>
+<style>
+:root{color-scheme:light;--bg:#f5f7f8;--surface:#fff;--text:#243447;--muted:#657485;--border:#dfe6eb;--accent:#25745d;--accent-soft:#eef7f2;--code-bg:#eff3f5;--warn:#98671d;--warn-soft:#fcf6e9;--sidebar:#142432;--code-dark:#172a38;--code-text:#dce9ed}
+:root[data-theme=dark]{color-scheme:dark;--bg:#101a23;--surface:#172530;--text:#dce5eb;--muted:#a0b1bf;--border:#2e414f;--accent:#8ad5b7;--accent-soft:#1c3a32;--code-bg:#233644;--warn:#e1bb74;--warn-soft:#393224;--sidebar:#0b151e;--code-dark:#0e1c27;--code-text:#dce9ed}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:28px}body{margin:0;background:var(--bg);color:var(--text);font:15px/1.75 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:var(--accent);text-underline-offset:3px}button,input{font:inherit}button{cursor:pointer}a:focus-visible,button:focus-visible,input:focus-visible,pre:focus-visible{outline:3px solid #4e9cce;outline-offset:4px}[hidden]{display:none!important}.sidebar{position:fixed;inset:0 auto 0 0;width:280px;background:var(--sidebar);padding:34px 22px;color:#d5e0e9;overflow-y:auto}.brand{display:flex;gap:11px;align-items:center;text-decoration:none;font-size:19px;font-weight:650;color:#f2f6f8;letter-spacing:-.4px}.brand-mark{background:#2e705b;color:#e1f4e9;font:700 16px ui-monospace,monospace;border-radius:7px;padding:3px 8px}.side-label{font-size:10px;color:#91a6b6;letter-spacing:1.8px;margin:30px 12px 15px}nav.toc strong{display:none}nav.toc ol{padding:0;margin:0;list-style:none}nav.toc li{margin:4px 0}nav.toc a{display:flex;align-items:baseline;gap:12px;padding:11px 12px;color:#b7c8d5;font-size:13px;line-height:1.55;text-decoration:none;border-radius:6px}nav.toc a:hover,nav.toc a.active{background:#253e49;color:#b2e7cf}.nav-number{font:11px ui-monospace,monospace;color:#829dab;flex:0 0 18px}nav.toc li>.badge{margin:0 0 8px 42px;color:#e1bf7c;border-color:#6a5c3d}.wrap{max-width:1460px;margin-left:280px;padding:49px clamp(24px,5vw,80px) 80px}header{position:relative;padding:0 0 28px;border-bottom:1px solid var(--border)}.eyebrow{font-size:10px;letter-spacing:2px;color:var(--accent);font-weight:750;margin-bottom:18px}h1{font-size:clamp(30px,3.8vw,48px);line-height:1.23;letter-spacing:-1.7px;margin:0 0 17px;max-width:760px}p{margin:0 0 15px}.lead{font-size:16px;color:var(--muted);max-width:720px;margin:0}h2{font-size:25px;line-height:1.4;letter-spacing:-.5px;margin:0 0 27px;scroll-margin-top:30px}h3{font-size:17px;line-height:1.5;margin:29px 0 13px}h2+.chapter-no{margin-top:0}.chapter{margin:26px 0 0;padding:30px 32px;background:var(--surface);border:1px solid var(--border);border-radius:10px;min-width:0}.chapter-no{font:650 10px ui-monospace,monospace;color:var(--accent);letter-spacing:1.8px;margin-bottom:11px}.theme-toggle{position:absolute;right:0;top:-4px;border:1px solid var(--border);background:var(--surface);color:var(--muted);padding:6px 11px;font-size:12px;border-radius:6px}.tools{display:flex;align-items:flex-end;gap:12px;margin:24px 0 0}.search{display:block;flex:1}.search span{display:block;font-size:12px;font-weight:600;color:var(--muted);margin-bottom:7px}.search input{width:100%;border:1px solid var(--border);border-radius:7px;background:var(--surface);color:var(--text);padding:11px 14px;font-size:14px}.tools button{padding:11px 16px;border:1px solid var(--border);background:var(--surface);color:var(--text);border-radius:7px;font-size:14px;white-space:nowrap}.search-status{font-size:12px;color:var(--muted);margin:8px 0 0;min-height:20px}#emptyState{padding:30px;border:1px dashed var(--border);color:var(--muted);margin-top:24px;border-radius:8px}code{font: .88em/1.6 ui-monospace,"Cascadia Code",Consolas,monospace;background:var(--code-bg);padding:2px 6px;border-radius:4px;overflow-wrap:anywhere}.table-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:7px;margin:14px 0 22px}table{width:100%;border-collapse:collapse;font-size:14px;background:var(--surface)}th,td{text-align:left;vertical-align:top;padding:12px 15px;border-bottom:1px solid var(--border);line-height:1.65}th{background:var(--code-bg);font-size:12px;font-weight:650;color:var(--muted);white-space:nowrap}tr:last-child td{border-bottom:0}tbody tr:hover{background:var(--accent-soft)}td:first-child{font-weight:550}#task~.table-wrap td:first-child{min-width:90px}td.status-cell{white-space:nowrap}td.status-cell strong{font-size:12px;font-weight:600;background:var(--code-bg);display:inline-block;border-radius:5px;padding:3px 9px}td[data-status=in-progress] strong{background:#eaf1fb;color:#315f9a}td[data-status=done] strong{background:#e6f4ed;color:#2e7056}td[data-status=cancelled] strong,td[data-status=undo] strong{background:#f5eae9;color:#92504c}.note{border-left:3px solid var(--accent);background:var(--accent-soft);padding:14px 17px;margin:18px 0;border-radius:0 6px 6px 0;font-size:14px}.note.warn{border-color:var(--warn);background:var(--warn-soft)}ul,ol{padding-left:23px}li{margin-bottom:7px}ol.steps>li{padding-left:5px;margin-bottom:12px}ol.steps li::marker{color:var(--muted);font-size:13px;font-weight:600}.steps ul{margin-top:8px}.badge{display:inline-block;vertical-align:middle;border:1px solid #cdb887;color:var(--warn);border-radius:4px;padding:1px 7px;font-size:10px;font-weight:600;letter-spacing:0;margin-left:6px;white-space:nowrap}.code-shell{border-radius:8px;overflow:hidden;margin:16px 0 23px;background:var(--code-dark);color:var(--code-text)}.code-bar{display:flex;align-items:center;justify-content:space-between;padding:8px 15px;border-bottom:1px solid #ffffff14;color:#9eb6c5;font:11px ui-monospace,monospace}.copy-button{background:transparent;border:1px solid #ffffff25;color:#c3d6df;border-radius:4px;padding:4px 9px;font-size:11px}.copy-button:hover{background:#ffffff0d}pre{margin:0;padding:19px 20px;overflow-x:auto;font:13px/1.8 ui-monospace,Consolas,monospace;tab-size:2}pre code{background:transparent;padding:0;color:inherit;overflow-wrap:normal;font:inherit}.original-diagram{background:var(--code-bg);border:1px solid var(--border);border-radius:7px;margin:15px 0 22px;padding:22px;font-size:12px}.options{display:grid;gap:20px}.card{border:1px solid var(--border);border-radius:8px;padding:4px 23px 20px;background:var(--surface);min-width:0}.card h3{margin-top:20px}.pros-cons{display:grid;grid-template-columns:1fr 1fr;gap:20px;border-top:1px solid var(--border);padding-top:17px;margin-top:18px;font-size:14px}.pros-cons strong{display:inline-block;margin-bottom:6px}.reading-progress{position:fixed;left:280px;right:0;top:0;height:3px;background:transparent;z-index:10}.reading-progress div{height:100%;width:0;background:var(--accent)}.back-top{position:fixed;right:22px;bottom:20px;padding:8px 13px;border:1px solid var(--border);border-radius:6px;background:var(--surface);color:var(--muted);font-size:12px;box-shadow:0 2px 8px #00000008}#announce{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%)}@media(min-width:1500px){.wrap{padding-right:100px}}@media(max-width:1050px){.sidebar{width:240px;padding:28px 16px}.wrap{margin-left:240px;padding:40px 28px}.reading-progress{left:240px}.chapter{padding:26px}.theme-toggle{position:static;margin:0 0 16px;float:right}header:after{content:"";display:block;clear:both}.eyebrow{padding-top:7px}}@media(max-width:760px){.sidebar{position:relative;width:auto;padding:20px}.brand{font-size:18px}.side-label{display:none}nav.toc{margin-top:18px}nav.toc ol{display:flex;overflow:auto;gap:7px;padding-bottom:4px}nav.toc li{flex:0 0 auto;max-width:220px}nav.toc a{font-size:12px;padding:8px 10px;background:#203542;height:100%}nav.toc li>.badge{display:none}.wrap{margin:0;padding:28px 18px 60px}.reading-progress{left:0}.chapter{padding:24px 19px;margin-top:18px}h1{font-size:32px;letter-spacing:-1px}h2{font-size:22px}header{padding-bottom:20px}.pros-cons{grid-template-columns:1fr;gap:12px}.card{padding:0 16px 18px}.theme-toggle{font-size:11px}.tools{gap:8px}.tools button{padding:11px;font-size:12px}th,td{padding:10px 12px;min-width:110px}pre{font-size:12px}.back-top{right:12px;bottom:12px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}@media print{:root{color-scheme:light;--bg:white;--surface:white;--text:#222;--muted:#555;--border:#ccc;--code-bg:#f3f3f3;--accent:#29594a;--accent-soft:#f4f7f5;--warn-soft:#faf7ef}.sidebar,.tools,.search-status,.theme-toggle,.reading-progress,.back-top,.copy-button,#emptyState{display:none!important}.wrap{margin:0;padding:0;max-width:none}body{font-size:10pt}.chapter,.chapter[hidden]{display:block!important;border:0;border-top:1px solid #bbb;border-radius:0;padding:18px 0;margin-top:22px}h1{font-size:26pt}h2{font-size:18pt;break-after:avoid}h3{font-size:12pt;break-after:avoid}.code-shell{background:#f2f3f4;color:#222;break-inside:avoid}.code-bar{color:#555;border-color:#ddd}pre{white-space:pre-wrap;font-size:9pt}.original-diagram{white-space:pre;font-size:7pt;padding:10px}table{font-size:9pt}.table-wrap{overflow:visible}tr{break-inside:avoid}th,td{padding:7px}.card{break-inside:auto}.note{break-inside:avoid}a{color:inherit;text-decoration:none}.chapter-no{font-size:8pt}}
+</style>
+</head>
+<body><aside class="sidebar"><a class="brand" href="#top"><span class="brand-mark">git</span> Team workflow</a><p class="side-label">TÀI LIỆU NỘI BỘ</p><nav class="toc" aria-label="Mục lục tài liệu">
+  <strong>Mục lục</strong>
+  <ol>
+    <li><a href="#task"><span class="nav-number" aria-hidden="true">01</span>Quy trình quản lý task</a></li>
+    <li><a href="#branch-model"><span class="nav-number" aria-hidden="true">02</span>Mô hình nhánh Git</a></li>
+    <li><a href="#naming"><span class="nav-number" aria-hidden="true">03</span>Quy tắc đặt tên branch</a></li>
+    <li><a href="#pr"><span class="nav-number" aria-hidden="true">04</span>Quy tắc Pull Request và merge</a></li>
+    <li><a href="#conflict"><span class="nav-number" aria-hidden="true">05</span>Quy tắc xử lý conflict</a></li>
+    <li><a href="#flow"><span class="nav-number" aria-hidden="true">06</span>Luồng làm việc mẫu</a></li>
+    <li><a href="#selective"><span class="nav-number" aria-hidden="true">07</span>Phương án đưa từng chức năng lên môi trường</a> <span class="badge">Đề xuất</span></li>
+  </ol>
+</nav></aside>
+<div class="wrap" id="top">
+
+<header><div class="eyebrow">QUY TRÌNH / TASK &amp; GIT</div>
+  <button class="theme-toggle" id="themeToggle" type="button">Đổi giao diện</button>
+  <h1>Quy trình làm việc của team</h1>
+  <p class="lead">Tài liệu mô tả quy trình quản lý task và quy trình làm việc với Git của team trên GitHub.</p>
+</header><div class="tools"><label class="search"><span>Tìm trong tài liệu</span><input type="search" id="search" placeholder="Nhập từ khóa: hotfix, QC, conflict…" autocomplete="off"></label><button type="button" id="printButton">In tài liệu</button></div><p id="searchStatus" role="status" class="search-status"></p><div id="emptyState" hidden>Không tìm thấy mục phù hợp. Thử một từ khóa khác.</div>
+
+
+
+<section class="chapter" aria-labelledby="task"><div class="chapter-no">MỤC 01</div><!-- 1 -->
+<h2 id="task">1. Quy trình quản lý task</h2>
+
+<h3>1.1. Các trạng thái</h3>
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Trạng thái</th><th>Ý nghĩa</th><th>Người chuyển</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Backlog</strong></td><td>Task mới được tạo, chưa review</td><td>PM / QC</td></tr>
+    <tr><td><strong>Todo</strong></td><td>PM đã duyệt, sẽ làm</td><td>PM</td></tr>
+    <tr><td><strong>Undo</strong></td><td>PM không duyệt, không làm</td><td>PM</td></tr>
+    <tr><td><strong>In Progress</strong></td><td>Đang thực hiện</td><td>Người được assign</td></tr>
+    <tr><td><strong>QC Review</strong></td><td>Đã làm xong, chờ QC kiểm tra</td><td>Người được assign</td></tr>
+    <tr><td><strong>Ready for UAT</strong></td><td>QC đã kiểm tra xong, đã đưa lên UAT</td><td>QC</td></tr>
+    <tr><td><strong>Ready for PROD</strong></td><td>UAT đã nghiệm thu, chờ đưa lên production</td><td>QC / PM</td></tr>
+    <tr><td><strong>Done</strong></td><td>Đã đưa lên production</td><td>PM / DevOps</td></tr>
+    <tr><td><strong>Cancelled</strong></td><td>Task bị hủy khi đang làm</td><td>PM</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h3>1.2. Luồng trạng thái</h3>
+<pre class="original-diagram" tabindex="0" aria-label="Sơ đồ quy trình, cuộn ngang để xem đầy đủ"><code>                       ┌──&gt; Undo
+Backlog ──(PM review)──┤
+                       └──&gt; Todo ──&gt; In Progress ──&gt; QC Review ──&gt; Ready for UAT ──&gt; Ready for PROD ──&gt; Done
+                                          │
+                                          └──&gt; Cancelled (task bị hủy khi đang làm)</code></pre>
+
+<h3>1.3. Chi tiết từng bước</h3>
+<ol class="steps">
+  <li><strong>Tạo task</strong>
+    <ul>
+      <li>PM tạo task khi khách hàng yêu cầu chức năng mới.</li>
+      <li>QC tạo task khi PM yêu cầu.</li>
+      <li>Task mới tạo ở trạng thái <strong>Backlog</strong>.</li>
+    </ul>
+  </li>
+  <li><strong>Review task</strong>: PM review task.
+    <ul>
+      <li>Duyệt và sẽ làm: chuyển sang <strong>Todo</strong>.</li>
+      <li>Không duyệt: chuyển sang <strong>Undo</strong>.</li>
+    </ul>
+  </li>
+  <li><strong>Assign</strong>: PM assign task cho người phù hợp (QC, Dev hoặc DevOps) tùy loại task.</li>
+  <li><strong>Estimate</strong>: người được assign ước lượng thời gian làm và trao đổi với PM.</li>
+  <li><strong>Set deadline</strong>: PM chốt deadline sau khi thống nhất estimate.</li>
+  <li><strong>Thực hiện</strong>: khi bắt đầu làm, người được assign kéo task sang <strong>In Progress</strong>.</li>
+  <li><strong>Hoàn thành</strong>: làm xong, kéo task sang <strong>QC Review</strong>, tag QC vào task và báo trong nhóm.</li>
+  <li><strong>QC kiểm tra</strong>: QC kiểm tra xong thì đưa lên môi trường UAT và kéo task sang <strong>Ready for UAT</strong>.</li>
+  <li><strong>Nghiệm thu UAT</strong>: UAT đạt thì kéo task sang <strong>Ready for PROD</strong>.</li>
+  <li><strong>Production</strong>: sau khi đã đưa lên production, chuyển task sang <strong>Done</strong>.</li>
+</ol>
+<div class="note">Nếu task bị hủy khi đang làm, PM chuyển task sang <strong>Cancelled</strong>.</div>
+
+</section><section class="chapter" aria-labelledby="branch-model"><div class="chapter-no">MỤC 02</div><!-- 2 -->
+<h2 id="branch-model">2. Mô hình nhánh Git</h2>
+
+<h3>2.1. Các nhánh môi trường</h3>
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Nhánh</th><th>Môi trường</th><th>Ghi chú</th></tr></thead>
+  <tbody>
+    <tr><td><code>develop</code></td><td>Development</td><td>Nhánh tích hợp code đã hoàn thành và đã kiểm thử</td></tr>
+    <tr><td><code>uat</code></td><td>UAT</td><td>Code chờ khách hàng/PM nghiệm thu</td></tr>
+    <tr><td><code>master</code></td><td>Production</td><td>Chỉ chứa code đã được nghiệm thu</td></tr>
+  </tbody>
+</table>
+</div>
+<p>Luồng đưa code lên các môi trường:</p>
+<pre class="original-diagram" tabindex="0" aria-label="Sơ đồ quy trình, cuộn ngang để xem đầy đủ"><code>develop ──&gt; uat ──&gt; master</code></pre>
+<p>Cả 3 nhánh <code>develop</code>, <code>uat</code>, <code>master</code> đều được <strong>protect</strong>.</p>
+
+<h3>2.2. Nhánh gốc khi tạo branch</h3>
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Loại công việc</th><th>Checkout từ</th></tr></thead>
+  <tbody>
+    <tr><td>Chức năng mới, fix lỗi thường, refactor, tài liệu</td><td><code>develop</code></td></tr>
+    <tr><td>Fix lỗi gấp trên production (hotfix)</td><td><code>master</code></td></tr>
+  </tbody>
+</table>
+</div>
+
+</section><section class="chapter" aria-labelledby="naming"><div class="chapter-no">MỤC 03</div><!-- 3 -->
+<h2 id="naming">3. Quy tắc đặt tên branch</h2>
+<p>Cú pháp: <code>&lt;loại&gt;/&lt;mã-task&gt;</code></p>
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Loại</th><th>Dùng khi</th><th>Checkout từ</th><th>Ví dụ</th></tr></thead>
+  <tbody>
+    <tr><td><code>feat/</code></td><td>Làm chức năng mới</td><td><code>develop</code></td><td><code>feat/PRJ-123</code></td></tr>
+    <tr><td><code>bugfix/</code></td><td>Fix lỗi không gấp hoặc lỗi trên develop</td><td><code>develop</code></td><td><code>bugfix/PRJ-124</code></td></tr>
+    <tr><td><code>hotfix/</code></td><td>Fix lỗi gấp trên production</td><td><code>master</code></td><td><code>hotfix/PRJ-125</code></td></tr>
+    <tr><td><code>refactor/</code></td><td>Tái cấu trúc code (thường do Lead làm)</td><td><code>develop</code></td><td><code>refactor/PRJ-126</code></td></tr>
+    <tr><td><code>docs/</code></td><td>Viết, cập nhật tài liệu</td><td><code>develop</code></td><td><code>docs/PRJ-127</code></td></tr>
+  </tbody>
+</table>
+</div>
+<div class="note"><code>&lt;mã-task&gt;</code> là mã task trên hệ thống quản lý task (GitHub Issue, Jira hoặc Trello).</div>
+
+</section><section class="chapter" aria-labelledby="pr"><div class="chapter-no">MỤC 04</div><!-- 4 -->
+<h2 id="pr">4. Quy tắc Pull Request và merge</h2>
+<div class="note">Trên GitHub, Merge Request (MR) được gọi là <strong>Pull Request (PR)</strong>.</div>
+<ol class="steps">
+  <li><strong>Không merge trực tiếp</strong> từ local vào <code>develop</code>, <code>uat</code>, <code>master</code>. Tất cả phải thông qua PR.</li>
+  <li><strong>Không push trực tiếp</strong> lên các nhánh môi trường. Chỉ được đưa code vào qua PR, trừ tài khoản hoặc quy trình khẩn cấp đã được ủy quyền rõ ràng.</li>
+  <li><strong>Nội dung PR bắt buộc có</strong>:
+    <ul>
+      <li>Mã task</li>
+      <li>Mô tả thay đổi</li>
+      <li>Kết quả kiểm thử</li>
+    </ul>
+  </li>
+  <li><strong>Review</strong>: phải có ít nhất <strong>1 người review và approve</strong> trước khi merge. Với thay đổi quan trọng, nên yêu cầu Lead hoặc người phụ trách module phê duyệt.</li>
+  <li><strong>Trước khi merge</strong>: phải xử lý hết conflict và các comment review còn tồn đọng.</li>
+  <li><strong>Chất lượng code</strong>:
+    <ul>
+      <li>Không merge code chưa hoàn thành hoặc chưa được kiểm thử vào <code>develop</code>.</li>
+      <li>Không đưa code chưa được nghiệm thu vào <code>master</code>.</li>
+    </ul>
+  </li>
+  <li><strong>Sau khi merge thành công</strong>: xóa branch nguồn nếu không còn dùng nữa.</li>
+</ol>
+
+<h3>Mẫu mô tả PR</h3>
+<div class="code-shell"><div class="code-bar"><span>Mẫu PR</span><button type="button" class="copy-button">Sao chép</button></div><pre><code>## Mã task
+PRJ-123
+
+## Mô tả thay đổi
+- ...
+
+## Kết quả kiểm thử
+- [ ] Đã test local
+- [ ] Đã chạy unit test
+- [ ] Pipeline pass
+
+## Ghi chú cho reviewer
+- ...</code></pre></div>
+
+</section><section class="chapter" aria-labelledby="conflict"><div class="chapter-no">MỤC 05</div><!-- 5 -->
+<h2 id="conflict">5. Quy tắc xử lý conflict</h2>
+<ol class="steps">
+  <li><strong>Người tạo branch</strong> chịu trách nhiệm xử lý conflict trên branch của mình.</li>
+  <li><strong>Không tự ý ghi đè</strong> code của người khác khi chưa hiểu rõ thay đổi đó.</li>
+  <li><strong>Không giải quyết conflict trực tiếp</strong> trên <code>develop</code>, <code>uat</code> hoặc <code>master</code>.</li>
+  <li><strong>Cách xử lý</strong>: checkout về branch đang làm, cập nhật nhánh đích mới nhất, rồi merge nhánh đích vào branch công việc để xử lý conflict.</li>
+  <li><strong>Sau khi xử lý conflict</strong>: kiểm tra lại code, chạy test và bảo đảm pipeline pass trước khi merge.</li>
+  <li><strong>Conflict liên quan nghiệp vụ hoặc logic của người khác</strong>: phải trao đổi với tác giả code hoặc Lead trước khi quyết định giữ thay đổi nào.</li>
+</ol>
+
+<h3>Các lệnh xử lý conflict</h3>
+<div class="code-shell"><div class="code-bar"><span>Terminal</span><button type="button" class="copy-button">Sao chép</button></div><pre><code># 1. Chuyển về branch công việc
+git checkout feat/PRJ-123
+
+# 2. Cập nhật nhánh đích mới nhất
+git fetch origin
+
+# 3. Merge nhánh đích vào branch công việc
+git merge origin/develop
+
+# 4. Sửa các file bị conflict, rồi đánh dấu đã xử lý
+git add &lt;file-đã-sửa&gt;
+git commit
+
+# 5. Chạy test, rồi push lên lại
+git push origin feat/PRJ-123</code></pre></div>
+
+</section><section class="chapter" aria-labelledby="flow"><div class="chapter-no">MỤC 06</div><!-- 6 -->
+<h2 id="flow">6. Luồng làm việc mẫu</h2>
+
+<h3>6.1. Làm chức năng mới</h3>
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Bước</th><th>Git</th><th>Trạng thái task</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td><code>git checkout develop</code> → <code>git pull</code> → <code>git checkout -b feat/PRJ-123</code></td><td>In Progress</td></tr>
+    <tr><td>2</td><td>Code, commit, push branch</td><td>In Progress</td></tr>
+    <tr><td>3</td><td>Tạo PR <code>feat/PRJ-123</code> → <code>develop</code>, tag reviewer</td><td>In Progress</td></tr>
+    <tr><td>4</td><td>Reviewer approve, merge vào <code>develop</code>, xóa branch</td><td>QC Review (tag QC, báo nhóm)</td></tr>
+    <tr><td>5</td><td>QC kiểm tra xong, tạo PR <code>develop</code> → <code>uat</code></td><td>Ready for UAT</td></tr>
+    <tr><td>6</td><td>UAT nghiệm thu đạt</td><td>Ready for PROD</td></tr>
+    <tr><td>7</td><td>Tạo PR <code>uat</code> → <code>master</code>, deploy production</td><td>Done</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h3>6.2. Fix lỗi gấp trên production (hotfix)</h3>
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Bước</th><th>Git</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td><code>git checkout master</code> → <code>git pull</code> → <code>git checkout -b hotfix/PRJ-125</code></td></tr>
+    <tr><td>2</td><td>Fix lỗi, commit, push branch</td></tr>
+    <tr><td>3</td><td>Tạo PR <code>hotfix/PRJ-125</code> → <code>master</code>, review và approve, merge, deploy</td></tr>
+    <tr><td>4</td><td>Đưa bản fix về lại <code>uat</code> và <code>develop</code> (qua PR) để các nhánh không bị lệch nhau</td></tr>
+  </tbody>
+</table>
+</div>
+
+</section><section class="chapter" aria-labelledby="selective"><div class="chapter-no">MỤC 07</div><!-- 7 -->
+<h2 id="selective">7. Phương án đưa từng chức năng lên môi trường <span class="badge">Đề xuất</span></h2>
+<div class="note warn">
+  Phần này là <strong>đề xuất, chưa áp dụng</strong>. Mục tiêu: thay vì đưa nguyên <code>develop</code> lên <code>uat</code> rồi <code>master</code> theo từng đợt, team có thể chọn những chức năng muốn đưa lên. Khi chốt phương án, cần sửa lại mục 2.2, mục 5 và mục 6 cho khớp.
+</div>
+
+<div class="options">
+
+  <div class="card">
+    <h3>Cách 1: Đưa từng feature branch lên từng môi trường</h3>
+    <p>Mỗi feature branch có PR riêng vào lần lượt <code>develop</code>, <code>uat</code>, <code>master</code>. Chức năng nào sẵn sàng thì lên chức năng đó.</p>
+<pre class="original-diagram" tabindex="0" aria-label="Sơ đồ quy trình, cuộn ngang để xem đầy đủ"><code>master ──┬──────────────────────────────&gt; master
+         │                                  ▲
+         └─ feat/PRJ-123 ──PR──&gt; develop    │
+                         ──PR──&gt; uat        │
+                         ──PR───────────────┘</code></pre>
+    <p><strong>Bắt buộc:</strong></p>
+    <ul>
+      <li>Feature branch phải <strong>checkout từ <code>master</code></strong>, không checkout từ <code>develop</code>. Checkout từ <code>develop</code> thì branch sẽ kéo theo code của người khác chưa được nghiệm thu.</li>
+      <li><strong>Không bao giờ merge <code>develop</code> hay <code>uat</code> vào feature branch.</strong> Lý do giống ở trên.</li>
+      <li>Nếu PR vào <code>uat</code> bị conflict: tạo một branch tạm từ feature branch (ví dụ <code>conflict/PRJ-123-uat</code>), merge <code>uat</code> vào branch tạm để xử lý, rồi tạo PR từ branch tạm vào <code>uat</code>. Feature branch gốc giữ nguyên.</li>
+      <li>Sau mỗi đợt release, đồng bộ lại <code>develop</code> và <code>uat</code> theo <code>master</code> để các nhánh không lệch nhau dần.</li>
+    </ul>
+    <div class="pros-cons">
+      <div><strong>Ưu điểm</strong><br>Chọn chức năng rất linh hoạt. Mỗi PR chỉ chứa đúng một chức năng nên review và rollback đều dễ.</div>
+      <div><strong>Nhược điểm</strong><br>Cùng một conflict có thể phải xử lý tới 3 lần, mỗi nhánh môi trường một lần. Mỗi feature tốn 3 PR.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Cách 2: Release branch và cherry-pick</h3>
+    <p>Feature vẫn merge vào <code>develop</code> như hiện tại. Tới lúc release thì tạo một branch riêng và chỉ lấy những chức năng muốn đưa lên.</p>
+<pre class="original-diagram" tabindex="0" aria-label="Sơ đồ quy trình, cuộn ngang để xem đầy đủ"><code>develop:  A(PRJ-123) ── B(PRJ-124) ── C(PRJ-125)
+                │                        │
+master ── release/2026-10-21 ◄── cherry-pick A, C
+                │
+                ├──PR──&gt; uat ──(UAT đạt)
+                └──PR──&gt; master</code></pre>
+    <p><strong>Bắt buộc:</strong></p>
+    <ul>
+      <li>PR vào <code>develop</code> dùng <strong>Squash merge</strong>, để mỗi chức năng chỉ là 1 commit, tiêu đề có mã task (ví dụ <code>feat(PRJ-123): ...</code>).</li>
+      <li>Tạo <code>release/&lt;ngày&gt;</code> từ <code>master</code>, rồi <code>git cherry-pick &lt;commit&gt;</code> từng chức năng được chọn.</li>
+      <li>Nếu chức năng B phụ thuộc chức năng A thì phải cherry-pick cả A. Người lên danh sách release phải kiểm tra điều này.</li>
+    </ul>
+    <div class="pros-cons">
+      <div><strong>Ưu điểm</strong><br>Gần với quy trình hiện tại nhất, dev gần như không phải đổi thói quen. Đợt nào cần lên hết thì vẫn promote nguyên <code>develop</code> như cũ được.</div>
+      <div><strong>Nhược điểm</strong><br>Cherry-pick tạo commit mới với hash khác, lâu dần <code>develop</code> và <code>master</code> dễ lệch nhau và sinh conflict. Cần người theo dõi commit nào thuộc task nào, đã lên đâu.</div>
+    </div>
+  </div>
+
+</div>
+
+<h3>So sánh nhanh</h3>
+<div class="table-wrap">
+<table>
+  <thead><tr><th></th><th>Cách 1: Feature branch</th><th>Cách 2: Cherry-pick</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Hợp khi</strong></td><td>Thường xuyên chọn lọc, các chức năng độc lập nhau</td><td>Phần lớn lên theo đợt, chỉ thỉnh thoảng loại bớt chức năng</td></tr>
+    <tr><td><strong>Thay đổi so với hiện tại</strong></td><td>Nhiều: đổi nhánh gốc, đổi quy tắc xử lý conflict</td><td>Ít: thêm squash merge và release branch</td></tr>
+    <tr><td><strong>Rủi ro chính</strong></td><td>Xử lý conflict lặp lại nhiều lần</td><td>Phụ thuộc giữa các commit, nhánh bị lệch nhau</td></tr>
+  </tbody>
+</table>
+</div>
+<div class="note">Ngoài hai cách trên còn có <strong>feature flag</strong>: vẫn merge hết như cũ, nhưng bật hoặc tắt chức năng bằng cấu hình. Cách này cần sửa code để hỗ trợ.</div>
+</section>
+</div>
+
+
+<div class="reading-progress" aria-hidden="true"><div></div></div><button class="back-top" type="button" hidden>Về đầu trang ↑</button><span id="announce" aria-live="polite"></span><script>(()=>{'use strict';const root=document.documentElement,button=document.getElementById('themeToggle'),query=document.getElementById('search'),chapters=[...document.querySelectorAll('.chapter')],links=[...document.querySelectorAll('.toc a')],status=document.getElementById('searchStatus');let theme='light';try{const saved=localStorage.getItem('team-workflow-theme')||localStorage.getItem('theme');if(saved==='dark'||saved==='light')theme=saved}catch{}function setTheme(t){root.dataset.theme=t;button.textContent=t==='dark'?'Giao diện sáng':'Giao diện tối';button.setAttribute('aria-label','Chuyển sang '+button.textContent.toLowerCase())}setTheme(theme);button.addEventListener('click',()=>{setTheme(root.dataset.theme==='dark'?'light':'dark');try{localStorage.setItem('team-workflow-theme',root.dataset.theme)}catch{}});const normalize=t=>t.normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/đ/g,'d').toLowerCase();const searchIndex=chapters.map(c=>normalize(c.textContent));function filter(){const words=normalize(query.value.trim()).split(/\s+/).filter(Boolean);let count=0;chapters.forEach((c,i)=>{c.hidden=!words.every(w=>searchIndex[i].includes(w));if(!c.hidden)count++});status.textContent=words.length?`${count} / ${chapters.length} mục phù hợp`:'';document.getElementById('emptyState').hidden=count>0}query.addEventListener('input',filter);links.forEach(a=>a.addEventListener('click',()=>{query.value='';filter()}));document.querySelectorAll('.copy-button').forEach(b=>b.addEventListener('click',async()=>{const text=b.closest('.code-shell').querySelector('pre').textContent;try{if(navigator.clipboard&&isSecureContext){await navigator.clipboard.writeText(text)}else{const t=document.createElement('textarea');t.value=text;t.style.cssText='position:fixed;opacity:0';document.body.append(t);t.select();const success=document.execCommand('copy');t.remove();b.focus();if(!success)throw Error('copy')}b.textContent='Đã sao chép';document.getElementById('announce').textContent='Đã sao chép nội dung';setTimeout(()=>{b.textContent='Sao chép'},1800)}catch{const selection=window.getSelection(),range=document.createRange();range.selectNodeContents(b.closest('.code-shell').querySelector('pre'));selection.removeAllRanges();selection.addRange(range);b.textContent='Nhấn Ctrl/Cmd+C';document.getElementById('announce').textContent='Nội dung đã được chọn, nhấn Control hoặc Command C để sao chép'}}));document.getElementById('printButton').addEventListener('click',()=>window.print());const progress=document.querySelector('.reading-progress div'),topButton=document.querySelector('.back-top');let scheduled=false;function track(){scheduled=false;const y=window.scrollY,total=document.documentElement.scrollHeight-window.innerHeight;progress.style.width=(total>0?Math.min(100,Math.max(0,y/total*100)):0)+'%';topButton.hidden=y<550;let current=null;chapters.forEach(c=>{if(!c.hidden&&c.getBoundingClientRect().top<window.innerHeight*.32)current=c.querySelector('h2').id});links.forEach(a=>{const active=a.hash==='#'+current;a.classList.toggle('active',active);if(active)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current')})}window.addEventListener('scroll',()=>{if(!scheduled){scheduled=true;requestAnimationFrame(track)}},{passive:true});window.addEventListener('resize',track);query.addEventListener('input',track);topButton.addEventListener('click',()=>window.scrollTo({top:0,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'}));track()})();</script></body>
+</html>
